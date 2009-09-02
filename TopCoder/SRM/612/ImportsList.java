@@ -2,7 +2,6 @@ import java.util.*;
 public class ImportsList {
 	private int size, sort[], sort_index;
 	private boolean used[], arr[][];
-	int min, sum;
 	
 	public ImportsList()
 	{
@@ -19,8 +18,8 @@ public class ImportsList {
 		int i, j, k, v;
 		for (i = 0; i < size; i++)
 		{
-			result[i] = 0;
 			used[i]   = false;
+			result[i] = 0;
 			for (j = 0; j < size; j++)
 			{
 				arr[i][j] = requires[i].charAt(j) == 'Y';
@@ -28,7 +27,6 @@ public class ImportsList {
 				if (arr[i][j])
 				{
 					result[i]++;
-					sum++;
 				}
 			}
 		}

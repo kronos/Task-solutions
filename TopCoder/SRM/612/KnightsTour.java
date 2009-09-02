@@ -1,8 +1,9 @@
 import java.util.*;
 public class KnightsTour
 {
-	private 		int arr[][];
-	final int moves[][] = {
+	private int arr[][];
+  private final int INFINITY = 100;
+	private final int moves[][] = {
 		{-2,-1},
 		{-2, 1},
 		{-1,-2},
@@ -20,10 +21,12 @@ public class KnightsTour
 
 	public int visitedPositions(String[] board) {
 		int count = 1;
-		boolean can_move = true, f = false;
-		int i,j, ik =0 , jk = 0,k;
-		for (i=0;(i<8);i++)
-			for (j=0;(j<8);j++)
+		boolean can_move = true;
+		int i, j, ik = 0 , jk = 0, k;
+		int min, imin, access_count;
+
+		for (i = 0; i < 8; i++)
+			for (j = 0; j < 8; j++)
 				switch(board[i].charAt(j))
 				{
 					case '.':
@@ -38,22 +41,22 @@ public class KnightsTour
 						arr[i][j] = 1;
 					break;
 				}
-		int min, imin, access_count;
+
 		while (can_move)
 		{
 			 can_move = false;
 			 imin = 0;
 			 min = accessibility(ik+moves[0][0], jk+moves[0][1]);
-			 can_move = min < 100;
-			 for(k = 1; k<8; k++)
+			 can_move = min < INFINITY;
+			 for(k = 1; k < 8; k++)
 			 {
-				 access_count = accessibility(ik+moves[k][0], jk+moves[k][1]);
+				 access_count = accessibility(ik + moves[k][0], jk + moves[k][1]);
 				 if (access_count < min)
 				 {                          
 					 min = access_count;
 					 imin = k;
 				 }
-				 can_move |= access_count < 100;
+				 can_move |= access_count < INFINITY;
 			 }
 
 			 if (can_move)
@@ -69,15 +72,15 @@ public class KnightsTour
 
 	private int accessibility(int i, int j)
 	{
-		 if (i< 0 || j<0 || i>7 || j>7 || arr[i][j] != 0)
-		   return 100;
+		 if (i < 0 || j < 0 || i > 7 || j > 7 || arr[i][j] != 0)
+		   return INFINITY;
 		 int count = 0;
 		 for (int k = 0; k < 8; k++)
 		   if (
 			     i+moves[k][0]>= 0 && i+moves[k][0] < 8 &&
 				   j+moves[k][1]>= 0 && j+moves[k][1] < 8 &&
 				   arr[i+moves[k][0]][j+moves[k][1]] == 0
-			  )
+			    )
 			   count++;
 		 return count;
 	}
