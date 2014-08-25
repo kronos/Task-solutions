@@ -7,7 +7,7 @@ let solve n k =
     | _ -> let next = read_int () in
             if current = next
             then advanced_count (n - 1) (i + 1) next
-            else if i >= k || next = 0 then acc
+            else if i >= k || next = 0 then i
                  else advanced_count (n - 1) (i + 1) next
   in advanced_count n 0 (-1)
 
