@@ -7,7 +7,7 @@ let get_bit n =
     | n ->  match read_string () with
               | "X++" | "++X" -> calculate_bit (r + 1) (n - 1)
               | "X--" | "--X" -> calculate_bit (r - 1) (n - 1)
-              | q -> Printf.printf "%s\n" q; assert  false
+              | _ -> assert false
   in calculate_bit 0 n
 
 
