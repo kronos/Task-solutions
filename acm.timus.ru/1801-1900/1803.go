@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"sort"
+	"strconv"
 )
 
 type rifle struct {
@@ -23,12 +26,14 @@ func (r BySum) Less(i, j int) bool {
 	}
 }
 
-var base = []int{0, 0, 65536, 59049, 65536, 78125, 46656, 16807, 32768, 59049, 1000000}
+var base = []int{0, 0, 65536, 59049, 65536, 78125, 46656, 16807, 32768, 59049, 100000}
+var writer *bufio.Writer = bufio.NewWriter(os.Stdout)
 
 func main() {
+	defer writer.Flush()
 	var n, j, rem, sum int
 	var i, t, k int
-	fmt.Scanf("%d %d\n", &k, &n)
+	fmt.Scanf("%d %d", &k, &n)
 	rifles := make([]rifle, n)
 	rifles[0] = rifle{0, 1}
 	rifles[1] = rifle{1, 1}
@@ -67,7 +72,8 @@ func main() {
 	sort.Stable(BySum(rifles))
 
 	for i = 0; i < n; i++ {
-		fmt.Printf("%d ", rifles[i].number+1)
+		writer.WriteString(strconv.Itoa(rifles[i].number + 1))
+		writer.WriteByte(' ')
 	}
-	fmt.Println()
+	writer.WriteByte('\n')
 }
