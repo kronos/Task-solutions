@@ -21,9 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.hackerrank;
+package com.hackerrank.strings;
+
+import com.hackerrank.Solution;
+
+import java.util.Arrays;
+
 /**
- * A Solution class.
+ * An ${Name} class.
  * 
  * <p>
  * Description
@@ -33,14 +38,29 @@ package com.hackerrank;
  * @since 1.0.0
  *
  */
+public class MakingAnagrams extends Solution {
+    public void solve() {
+        int A = (int)'a';
+        String a = in.next();
+        String b = in.next();
+        int[] a_chars = new int[26];
+        int[] b_chars = new int[26];
+        int answer = 0;
 
-import java.io.*;
-import java.util.*;
+        Arrays.fill(a_chars, 0);
+        Arrays.fill(b_chars, 0);
 
-public class Solution {
-    protected Scanner in;
+        for (int i = 0; i < a.length(); i++) {
+            a_chars[(int)a.charAt(i)-A]++;
+        }
 
-    public Solution() {
-        this.in = new Scanner(System.in);
+        for (int i = 0; i < b.length(); i++) {
+            b_chars[(int)b.charAt(i)-A]++;
+        }
+
+        for (int i = 0; i < 26; i++) {
+            answer += Math.abs(a_chars[i] - b_chars[i]);
+        }
+        System.out.println(answer);
     }
 }

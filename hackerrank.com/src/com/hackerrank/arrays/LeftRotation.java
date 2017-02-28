@@ -21,9 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.hackerrank;
+package com.hackerrank.arrays;
+
+import com.hackerrank.Solution;
+
+import java.io.IOException;
+
 /**
- * A Solution class.
+ * An ${Name} class.
  * 
  * <p>
  * Description
@@ -33,14 +38,22 @@ package com.hackerrank;
  * @since 1.0.0
  *
  */
+public class LeftRotation extends Solution {
+    public void solve() throws IOException {
+        int n = in.nextInt();
+        int d = in.nextInt();
+        int a[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (i >= d) {
+                a[i-d] = in.nextInt();
+            } else {
+                a[n-d+i] = in.nextInt();
+            }
+        }
 
-import java.io.*;
-import java.util.*;
-
-public class Solution {
-    protected Scanner in;
-
-    public Solution() {
-        this.in = new Scanner(System.in);
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i]);
+            System.out.print(' ');
+        }
     }
 }
