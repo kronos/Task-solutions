@@ -54,31 +54,18 @@ public class IsThisaBinarySearchTree extends Solution {
         }
 
         return (root != null) &&
-               less(root.left, Integer.MIN_VALUE, root.data, was) &&
-               more(root.right, root.data, Integer.MAX_VALUE, was);
+               check(root.left, Integer.MIN_VALUE, root.data, was) &&
+                check(root.right, root.data, Integer.MAX_VALUE, was);
     }
 
-    private boolean less(Node root, int from, int to, Set<Integer> was) {
+    private boolean check(Node root, int from, int to, Set<Integer> was) {
         boolean bst = root == null;
         if (!bst) {
             if (!was.contains(root.data)) {
                 was.add(root.data);
                 bst = (root.data > from) && (root.data < to) &&
-                       less(root.left, from ,root.data, was) &&
-                       more(root.right, root.data, to, was);
-            }
-        }
-        return bst;
-    }
-
-    private boolean more(Node root, int from, int to, Set<Integer> was) {
-        boolean bst = root == null;
-        if (!bst) {
-            if (!was.contains(root.data)) {
-                was.add(root.data);
-                bst = (root.data > from) && (root.data < to) &&
-                       less(root.left, from, root.data, was) &&
-                       more(root.right, root.data, to, was);
+                      check(root.left, from ,root.data, was) &&
+                      check(root.right, root.data, to, was);
             }
         }
         return bst;
