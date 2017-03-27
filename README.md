@@ -6,3 +6,4 @@ My sport programming adventures.
 * [acm.mipt.ru](http://acm.mipt.ru/judge/users.pl?user=kronos)
 * [hackerrank.com](https://www.hackerrank.com/kronos_vano)
 * [interviewbit.com](https://www.interviewbit.com/profile/ivan_samsonov)
+* [acmp.ru](http://acmp.ru/index.asp?main=user&id=560)
