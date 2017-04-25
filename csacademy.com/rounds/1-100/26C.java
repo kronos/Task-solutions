@@ -12,10 +12,9 @@ public class Main {
         int l = in.nextInt();
         int r = in.nextInt();
         int[] a = new int[n];
-        long ans = 0, j = 0, m, extra = 0;
+        long ans = 0, m;
         Set<Integer> s = new HashSet<>();
         Queue<Integer> q = new LinkedList<>();
-        List<Integer> chunks = new LinkedList<>();
 
         for (int i = 0; i < n; i++) {
             a[i] = in.nextInt();
@@ -24,7 +23,8 @@ public class Main {
         for (int i = 0; i < n; i++) {
             if (s.contains(a[i])) {
                 if (q.size() >= l) {
-                    chunks.add(q.size());
+                    m = Integer.min(q.size(), r);
+                    ans += (2*q.size()-l-m+2) * (m-l+1)/2;
                 }
 
                 while (q.peek() != a[i]) {
@@ -34,7 +34,7 @@ public class Main {
                 q.poll();
                 if (q.size() >= l) {
                     m = Integer.min(q.size(), r);
-                    extra += (2*q.size()-l-m+2) * (m-l+1)/2;
+                    ans -= (2*q.size()-l-m+2) * (m-l+1)/2;
                 }
                 q.add(a[i]);
             } else {
@@ -44,14 +44,11 @@ public class Main {
         }
 
         if (q.size() >= l) {
-            chunks.add(q.size());
+            m = Integer.min(q.size(), r);
+            ans += (2*q.size()-l-m+2) * (m-l+1)/2;
         }
 
-        for (Integer chunk : chunks) {
-            m = Integer.min(chunk, r);
-            ans += (2*chunk-l-m+2) * (m-l+1)/2;
-        }
-        out.println(ans-extra);
+        out.println(ans);
         out.flush();
     }
 
