@@ -8,3 +8,4 @@ My sport programming adventures.
 * [interviewbit.com](https://www.interviewbit.com/profile/ivan_samsonov)
 * [acmp.ru](http://acmp.ru/index.asp?main=user&id=560)
 * [csacademy.com](https://csacademy.com/user/kronos)
+* [russiancodecup.ru](https://russiancodecup.ru)
