@@ -1,4 +1,4 @@
-My sport programming adventures.
+# Sport programming adventures
 
 * [acm.timus.ru](http://acm.timus.ru/author.aspx?id=36955)
 * [codeforces.ru](http://codeforces.ru/profile/kronos)
@@ -9,3 +9,5 @@ My sport programming adventures.
 * [acmp.ru](http://acmp.ru/index.asp?main=user&id=560)
 * [csacademy.com](https://csacademy.com/user/kronos)
 * [russiancodecup.ru](https://russiancodecup.ru)
+* [spoj.com](http://www.spoj.com/users/kronos_vano/)
+* [contest.yandex.ru](https://contest.yandex.ru)
