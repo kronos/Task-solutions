@@ -13,3 +13,4 @@
 * [contest.yandex.ru](https://contest.yandex.ru)
 * [codechef.com](https://www.codechef.com/users/kronos_vano)
 * [atcoder.jp](http://atcoder.jp/user/kronos)
+* [leetcode.com](https://leetcode.com/krrronos/)
